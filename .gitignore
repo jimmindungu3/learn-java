@@ -1,0 +1,24 @@
+### IntelliJ ###
+.idea/
+*.iml
+out/
+
+### Eclipse ###
+.classpath
+.project
+.settings/
+bin/
+
+### NetBeans ###
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### OS ###
+.DS_Store
+Thumbs.db
