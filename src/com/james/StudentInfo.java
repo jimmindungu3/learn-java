@@ -1,3 +1,213 @@
+/* # Java Comprehensive Practical Test
+
+## Instructions
+- Complete all exercises in order
+- Test your code to make sure it runs correctly
+- Pay attention to proper naming conventions and code structure
+- Time yourself: Aim to complete this in 2-3 hours
+
+---
+
+## Part 1: Basic Java Fundamentals (20 points)
+
+### Exercise 1: Variables and Data Types (5 points)
+Create a class called `StudentInfo` that stores and displays the following information:
+- Student name (String)
+- Age (int)
+- Height in meters (double)
+- Is enrolled (boolean)
+- Grade letter (char)
+
+Print all information in a formatted way.
+
+### Exercise 2: Operators and Math (5 points)
+Write a program that:
+- Takes two numbers as input
+- Performs all arithmetic operations (+, -, *, /, %)
+- Uses comparison operators to check if first number is greater than second
+- Uses Math class to find the maximum, minimum, and square root of the first number
+
+### Exercise 3: Type Casting (5 points)
+Demonstrate both implicit and explicit casting:
+- Convert an int to double (implicit)
+- Convert a double to int (explicit)
+- Show what happens when you cast 65 to char
+- Convert a string "123" to an integer
+
+### Exercise 4: Strings (5 points)
+Create a program that:
+- Takes a full name as input
+- Converts it to uppercase and lowercase
+- Finds the length of the name
+- Extracts the first name (before the space)
+- Checks if the name contains "Java"
+
+---
+
+## Part 2: Control Flow (25 points)
+
+### Exercise 5: If-Else Statements (8 points)
+Write a program that determines a student's grade based on their score:
+- 90-100: A
+- 80-89: B
+- 70-79: C
+- 60-69: D
+- Below 60: F
+
+Also check if the student passed (score >= 60) and provide encouragement messages.
+
+### Exercise 6: Switch Statement (7 points)
+Create a simple calculator using switch statement that:
+- Takes two numbers and an operator (+, -, *, /)
+- Performs the calculation based on the operator
+- Handles division by zero
+- Provides error message for invalid operators
+
+### Exercise 7: Loops (10 points)
+Write three separate programs:
+
+**a) While Loop:** Print numbers from 1 to 20, but only print even numbers
+
+**b) For Loop:** Create a multiplication table for a given number (1-12)
+
+**c) Nested Loops:** Print this pattern:
+```
+*
+**
+***
+****
+*****
+```
+
+---
+
+## Part 3: Arrays (15 points)
+
+### Exercise 8: Array Basics (8 points)
+Create a program that:
+- Creates an array of 10 integers
+- Fills it with random numbers between 1-100
+- Finds and prints the largest and smallest numbers
+- Calculates and prints the average
+- Counts how many numbers are above average
+
+### Exercise 9: Array Methods (7 points)
+Write a program with the following methods:
+- `printArray(int[] arr)` - prints all elements
+- `reverseArray(int[] arr)` - returns a new reversed array
+- `findElement(int[] arr, int target)` - returns index of target or -1 if not found
+
+Test all methods with a sample array.
+
+---
+
+## Part 4: Methods (20 points)
+
+### Exercise 10: Method Basics (10 points)
+Create a utility class called `MathHelper` with these static methods:
+- `isEven(int number)` - returns true if number is even
+- `factorial(int n)` - calculates factorial using recursion
+- `isPrime(int number)` - checks if a number is prime
+- `power(int base, int exponent)` - calculates base^exponent
+
+### Exercise 11: Method Overloading (10 points)
+Create a class called `Calculator` with overloaded `add` methods:
+- `add(int a, int b)` - adds two integers
+- `add(double a, double b)` - adds two doubles
+- `add(int a, int b, int c)` - adds three integers
+- `add(String a, String b)` - concatenates two strings
+
+Test all overloaded methods.
+
+---
+
+## Part 5: Object-Oriented Programming (20 points)
+
+### Exercise 12: Classes and Objects (20 points)
+Create a complete program with the following requirements:
+
+**Create a `BankAccount` class with:**
+- Private attributes: `accountNumber` (String), `balance` (double), `ownerName` (String)
+- Constructor that takes all three parameters
+- Getter and setter methods for all attributes
+- `deposit(double amount)` method
+- `withdraw(double amount)` method (check for sufficient funds)
+- `getAccountInfo()` method that returns formatted account information
+
+**Create a `SavingsAccount` class that extends `BankAccount`:**
+- Additional private attribute: `interestRate` (double)
+- Constructor that calls parent constructor and sets interest rate
+- `calculateInterest()` method that calculates and adds interest to balance
+- Override `getAccountInfo()` to include interest rate information
+
+**In your main method:**
+- Create 2 regular BankAccount objects
+- Create 1 SavingsAccount object
+- Perform various operations (deposits, withdrawals, interest calculation)
+- Display all account information
+- Demonstrate polymorphism by storing different account types in a BankAccount array
+
+---
+
+## Bonus Challenge (Extra Credit - 10 points)
+
+### Exercise 13: Advanced OOP
+Create a simple **Library Management System**:
+
+**Book class:**
+- Attributes: title, author, ISBN, isAvailable
+- Methods: borrowBook(), returnBook(), getBookInfo()
+
+**Library class:**
+- Array of Book objects
+- Methods: addBook(), findBook(), displayAvailableBooks(), borrowBook(), returnBook()
+
+**Main program:**
+- Create a library with several books
+- Implement a simple menu system for users to:
+  - View available books
+  - Borrow a book
+  - Return a book
+  - Add a new book
+
+---
+
+## Evaluation Criteria
+
+### Code Quality (Check these for each exercise):
+- [ ] Code compiles and runs without errors
+- [ ] Proper variable naming conventions
+- [ ] Appropriate use of access modifiers
+- [ ] Good code organization and structure
+- [ ] Proper exception handling where needed
+- [ ] Clear and helpful comments
+
+### Concept Understanding:
+- **Basic Concepts (25%):** Variables, data types, operators, strings
+- **Control Flow (25%):** If-else, switch, loops
+- **Arrays & Methods (25%):** Array manipulation, method creation and overloading
+- **OOP Concepts (25%):** Classes, objects, inheritance, encapsulation, polymorphism
+
+---
+
+## Scoring Guide
+- **90-100:** Excellent - All concepts mastered
+- **80-89:** Good - Strong understanding, minor gaps
+- **70-79:** Satisfactory - Basic understanding, needs practice
+- **60-69:** Needs Improvement - Review fundamental concepts
+- **Below 60:** Requires Significant Study - Revisit course materials
+
+---
+
+## After Completing the Test
+
+1. **Review your solutions** - Look for areas where you struggled
+2. **Test edge cases** - Try unusual inputs to see if your code handles them
+3. **Refactor your code** - Can you make it cleaner or more efficient?
+4. **Practice the concepts** you found challenging
+
+Good luck with your test! Remember, the goal is to learn and improve your Java programming skills. */
+
 package com.james;
 
 import java.util.Arrays;
