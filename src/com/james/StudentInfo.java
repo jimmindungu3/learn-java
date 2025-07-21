@@ -21,7 +21,7 @@ public class StudentInfo {
 
 class OperatorsAndMath {
     public static void operators(int num1, int num2) {
-        System.out.println("Sum of " + num1 + "and " + num2 + "is " + num1 + num2);
+        System.out.println("Sum of " + num1 + "and " + num2 + "is " + (num1 + num2));
         System.out.println("Difference of " + num1 + "and " + num2 + "is " + (num1 - num2));
         System.out.println("Product of " + num1 + "and " + num2 + "is " + num1 * num2);
         System.out.println("Quotient of " + num1 + "and " + num2 + "is " + num1 / num2);
@@ -49,18 +49,18 @@ class TypeCasting {
 
         double ageDouble = (double) myAge; // castable
         int intPI = (int) PI; // castable
-        char castedChar = (char) (num); // castable
+        char castedChar = (char) (num); // castable to A
         // int number = (int) intString; // cannot cast string to integer
     }
 }
 
 class StringMethods {
     public static void stringMethods (String fullName) {
-        String upperCaseFullName = fullName.toUpperCase();
-        String lowerCaseFullName = fullName.toLowerCase();
-        int lenghtOfFullName = fullName.length();
-        String firstName = fullName.split(" ")[0];
-        boolean hasJava = fullName.contains("Java");
+        System.out.println(fullName.toUpperCase());
+        System.out.println(fullName.toLowerCase());
+        System.out.println(fullName.length());
+        System.out.println(fullName.split(" ")[0]);
+        System.out.println(fullName.contains("Java"));
     }
 }
 
@@ -82,6 +82,7 @@ class ControlFlow {
         } else {
             grade = 'F';
         }
+
         System.out.println("Grade: " + grade);
         if (score >= 60) {
             System.out.println("Hooray! You passed!");
@@ -93,36 +94,26 @@ class Calc {
     public static double calculator(int num1, int num2, char operator) {
         if (num2 == 0 && operator == '/') throw new ArithmeticException("Division by zero");
 
-        switch (operator) {
-            case ('/'): {
-                return (double) num1 / num2;
-            }
-            case ('+'): {
-                return num1 + num2;
-            }
-            case ('*'): {
-                return num1 * num2;
-            }
-            case ('-'): {
-                return num1 - num2;
-            }
-            default:
-                return -1;
-        }
+        return switch (operator) {
+            case ('+') -> num1 + num2;
+            case ('-') -> num1 - num2;
+            case ('*') -> num1 * num2;
+            case ('/') -> (double) num1 / num2;
+            default -> -1;
+        };
     }
 }
 
 class WhileLoop {
     public static void whileLoop (int num) {
-       int i = 0;
+       int i = 2;
        while (i <= 20) {
-           if (i % 2 == 0) {
-               System.out.println(i);
-               i++;
-           }
+           System.out.println(i);
+           i += 2;
        }
     }
 }
+
 
 class ForLoop {
     public static void forLoop (int num) {
@@ -163,18 +154,19 @@ class ArrayOfIntegers {
     }
 }
 
+// EXERCISE 9: ARRAY METHODS
 class ArrayMethods {
     int[] numbers = {1, 2, 3, 4, 5, 6, 7};
 
-    public static void printArray() {
-        System.out.println(numbers.toString());
+    public void printArray() {
+        System.out.println(Arrays.toString(numbers));
     }
 
-    public static int[] reversedArray (int[]) {
-        return // reversed array
+    public int[] reversedArray (int[]) {
+        return []; // reversed array
     }
 
-    public static int findIndexOfElement(int number) {
+    public int findIndexOfElement(int number) {
         return Arrays.stream(numbers).findAny();
     }
 }
@@ -190,6 +182,10 @@ class MathHelper {
         }
 
         return number * getFactorial(number - 1);
+    }
+
+    public static int power(int base, int exponent) {
+        return (int) Math.pow(base, exponent);
     }
 
     public static boolean isPrime(int number) {
@@ -222,23 +218,83 @@ class Calculator {
     }
 }
 
+
 class BankAccount {
     private String accountNumber;
     private double balance;
     private String ownerName;
 
-    BankAccount(String accountNumber, double balance, String ownerName) {
+    public BankAccount(String accountNumber, double balance, String ownerName) {
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.ownerName = ownerName;
     }
+
+    public String getAccountNumber() { return accountNumber; }
+    public double getBalance() { return balance; }
+    public String getOwnerName() { return ownerName; }
+
+    public void setAccountNumber(String accountNumber) { this.accountNumber = accountNumber; }
+    public void setBalance(double balance) { this.balance = balance; }
+    public void setOwnerName(String ownerName) { this.ownerName = ownerName; }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient funds or invalid amount for " + ownerName);
+        }
+    }
+
+    public String getAccountInfo() {
+        return "Account: " + accountNumber + ", Owner: " + ownerName + ", Balance: " + balance;
+    }
 }
 
+class SavingsAccount extends BankAccount {
+    private double interestRate;
 
+    public SavingsAccount(String accountNumber, double balance, String ownerName, double interestRate) {
+        super(accountNumber, balance, ownerName);
+        this.interestRate = interestRate;
+    }
 
+    public void calculateInterest() {
+        double interest = getBalance() * interestRate;
+        deposit(interest);
+    }
 
+    @Override
+    public String getAccountInfo() {
+        return super.getAccountInfo() + ", Interest Rate: " + (interestRate * 100) + "%";
+    }
+}
 
+class BankDemo {
+    public static void main(String[] args) {
+        BankAccount acc1 = new BankAccount("001", 5000, "Alice");
+        BankAccount acc2 = new BankAccount("002", 3000, "Bob");
 
+        SavingsAccount sav1 = new SavingsAccount("003", 7000, "Carol", 0.05);
+
+        acc1.deposit(1000);
+        acc2.withdraw(500);
+        sav1.calculateInterest();
+        sav1.withdraw(1000);
+
+        BankAccount[] accounts = {acc1, acc2, sav1};
+
+        for (BankAccount acc : accounts) {
+            System.out.println(acc.getAccountInfo());
+        }
+    }
+}
 
 
 
