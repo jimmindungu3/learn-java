@@ -1,6 +1,7 @@
 package com.james;
 
 import java.util.Arrays;
+import java.util.OptionalInt;
 
 public class StudentInfo {
     public static void main(String[] args) {
@@ -162,11 +163,15 @@ class ArrayMethods {
         System.out.println(Arrays.toString(numbers));
     }
 
-    public int[] reversedArray (int[]) {
-        return []; // reversed array
+    public int[] reversedArray(int[] input) {
+        int[] reversed = new int[input.length];
+        for (int i = 0; i < input.length; i++) {
+            reversed[i] = input[input.length - 1 - i];
+        }
+        return reversed;
     }
 
-    public int findIndexOfElement(int number) {
+    public OptionalInt findIndexOfElement(int number) {
         return Arrays.stream(numbers).findAny();
     }
 }
@@ -258,7 +263,7 @@ class BankAccount {
 }
 
 class SavingsAccount extends BankAccount {
-    private double interestRate;
+    private final double interestRate;
 
     public SavingsAccount(String accountNumber, double balance, String ownerName, double interestRate) {
         super(accountNumber, balance, ownerName);
