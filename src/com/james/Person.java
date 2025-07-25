@@ -1,52 +1,54 @@
-package com.james;
 
-public class Person {
-    private String name;
-    private int age;
+class Person {
+    String name;
+    String id;
 
-    // Constructor
-    Person(String name, int age) {
+    Person(String name, String id) {
         this.name = name;
-        this.age = age;
+        this.id = id;
     }
 
-    // Getter for name
-    public String getName() {
-        return name;
+    public void displayInfo() {
+        System.out.println("My name is " + name);
+    }
+}
+
+class Student extends Person {
+    String course;
+
+    Student(String name, String id, String course) {
+        super(name, id); // ✅ calls Person constructor
+        this.course = course;
     }
 
-    // Setter for name
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public void displayInfo() {
+        System.out.println("My name is " + name + ", ID: " + id + ", Course: " + course);
+    }
+}
+
+class Lecturer extends Person {
+    String department;
+
+    Lecturer(String name, String id, String department) {
+        super(name, id); // ✅ calls Person constructor
+        this.department = department;
     }
 
-    // Getter for age
-    public int getAge() {
-        return age;
+    @Override
+    public void displayInfo() {
+        System.out.println("My name is " + name + ", Department: " + department);
     }
+}
 
-    // Setter for age
-    public void setAge(int age) {
-        this.age = age;
-    }
-
+class Main {
     public static void main(String[] args) {
-        Person person = new Person("James", 31);
+        Person person = new Person("John Doe", "P001");
+        Student student = new Student("James Ndungu", "S001", "Java");
+        Lecturer lecturer = new Lecturer("Jasper Ondulo", "I001", "ICT");
 
-        // Use getters
-        System.out.println(person.getName() + " " + person.getAge());
-
-        // Use setters to update values
-        person.setName("John");
-        person.setAge(25);
-
-        // Print updated values using getters
-        System.out.println(person.getName() + " " + person.getAge());
-
-        testStaticModifier();
-    }
-
-    static void testStaticModifier() {
-        System.out.println("With 'static', I can be called without creating a Person instance");
+        person.displayInfo();
+        student.displayInfo();
+        lecturer.displayInfo();
     }
 }
