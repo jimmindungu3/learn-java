@@ -20,5 +20,7 @@ public class JavaLinkedList {
         System.out.println(cars); // [Mazda, Volvo, BMW, Ford]
         cars.removeFirst();
         System.out.println(cars); // [Volvo, BMW, Ford]
+        cars.clear();
+        System.out.println(cars); // []
     }
 }
