@@ -5,37 +5,22 @@ import java.util.HashSet;
 public class JavaHashSet {
     public static void main(String[] args) {
         HashSet<String> cars = new HashSet<>();
-
-        // Add elements
         cars.add("BMW");
-        cars.add("Volvo");
-        cars.add("Volvo"); // Duplicate will be ignored
-        cars.add("Mazda");
+        cars.add("BMW"); // Duplicates not allowed. No error raised tho'
+        boolean hasToyota = cars.contains("Toyota");
+        System.out.println(hasToyota);
+        cars.remove("BMW");
+        System.out.println(cars);
 
-        // Print all
-        System.out.println("Cars: " + cars);
+        HashSet<Integer> numbs = new HashSet<>();
+        numbs.add(10);
+        numbs.add(20);
+        numbs.add(30);
+        numbs.add(40);
+        numbs.add(50);
 
-        // Check if contains
-        System.out.println("Has Toyota? " + cars.contains("Toyota"));
-
-        // Remove an item
-        cars.remove("Mazda");
-        System.out.println("After removing Mazda: " + cars);
-
-        // Size
-        System.out.println("Size: " + cars.size());
-
-        // Loop through
-        System.out.print("Looped: ");
-        for (String car : cars) {
-            System.out.print(car + " ");
+        for (int numb : numbs){
+            System.out.println(numb); // Order of numbers lost
         }
-
-        // Clear all
-        cars.clear();
-        System.out.println("\nAfter clear: " + cars);
-
-        // Check if empty
-        System.out.println("Is empty? " + cars.isEmpty());
     }
 }
